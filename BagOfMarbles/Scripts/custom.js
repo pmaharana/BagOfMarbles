@@ -25,7 +25,7 @@ let getAllMarbles = () => {
         type: "GET",
         success: (data) => {
             console.log("success", data);
-            randomDisplayer(data);
+            
         },
         error: (data) => {
             console.log("oops", data);
@@ -48,7 +48,7 @@ let randomizeMarble = () => {
         type: "PUT",
         success: (data) => {
             console.log("success", data);
-            
+            randomDisplayer(data);
         },
         error: (data) => {
             console.log("oops", data);
