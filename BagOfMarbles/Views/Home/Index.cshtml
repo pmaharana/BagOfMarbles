@@ -1,4 +1,5 @@
-﻿@{
+﻿
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -20,13 +21,21 @@
 </div>
 
 
+
+
+
 <div>
 <div class="col-md-12">
     <input type="text" name="name" value="" id="newMarbleColor" placeholder="Enter color"/>
-    <button class="btn btn-danger" onclick="talkToServer();">Talk to server</button></div>    
+    <button class="btn btn-danger" onclick="talkToServer();">Add a marble</button></div>    
 </div>
 
 <div class="col-md-12">
-    <input type="text" name="name" value="" id="color"  />
-    <button class="btn btn-success" onclick="doSomething();">Add the marble</button>
+    
+    <button class="btn btn-success" onclick="getAllMarbles();">Show Marbles</button>
+</div>
+
+<div class="col-md-12">
+    
+    <button class="btn btn-warning" onclick="randomizeMarble();">Randomize dat marble</button>
 </div>

@@ -9,14 +9,71 @@ let addToList = (data) => {
 
 }
 
+let randomDisplayer = (data) => {
+    $("#marbleColor").html(data.Color);
+}
+
+
+let getAllMarbles = () => {
+
+    $.ajax({
+
+        url: '/api/Marbles',
+        dataType: "json",
+        contentType: "application/json",
+        
+        type: "GET",
+        success: (data) => {
+            console.log("success", data);
+            randomDisplayer(data);
+        },
+        error: (data) => {
+            console.log("oops", data);
+        },
+        complete: (data) => {
+            console.log("done", data);
+        }
+    });
+}
+
+
+let randomizeMarble = () => {
+
+    $.ajax({
+
+        url: '/api/Marbles',
+        dataType: "json",
+        contentType: "application/json",
+
+        type: "PUT",
+        success: (data) => {
+            console.log("success", data);
+            
+        },
+        error: (data) => {
+            console.log("oops", data);
+        },
+        complete: (data) => {
+            console.log("done", data);
+        }
+
+        
+    });
+
+    
+    
+}
+
+
+
 
 let talkToServer = () => {
 
     let newMarble = {
         color: $("#newMarbleColor").val()
-        
     };
-
+        
+    
 
     $.ajax({
 
@@ -35,7 +92,6 @@ let talkToServer = () => {
             console.log("done", data);
         }
 
-
-
     });
 }
+

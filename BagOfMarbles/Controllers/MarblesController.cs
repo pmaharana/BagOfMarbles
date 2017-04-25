@@ -10,16 +10,30 @@ namespace BagOfMarbles.Controllers
 {
     public class MarblesController : ApiController
     {
+        public static List<Marbles> marbleBox = new List<Marbles>();
+        
+
         // GET: api/Marbles
         public IHttpActionResult Get()
         {
-            return Ok(new { Hello = "world" });
+            return Ok(marbleBox);
+        }
+
+        [HttpPut]
+        public IHttpActionResult Random()
+        {
+            var randomNum = new Random().Next(0, marbleBox.ToArray().Length - 1);
+            var randomizedMarble = marbleBox[randomNum];
+            
+            return Ok(randomizedMarble);
         }
 
         [HttpPost]
         public IHttpActionResult Add(Marbles marble)
         {
+            
             marble.Id = new Random().Next(0, 100);
+            marbleBox.Add(marble);
             return Ok(marble);
         }
        
